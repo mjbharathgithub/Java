@@ -3,9 +3,9 @@ package threadsInJava;
 class A extends Thread{
 	
 	public void run() {
-		for(int i=0;i<10;i++) { System.out.println("hello");
+		for(int i=0;i<5;i++) { System.out.println("hello    count:"+(i+1));
 		try {
-			Thread.sleep(2000);
+			Thread.sleep(3000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -17,9 +17,9 @@ class A extends Thread{
 
 class B extends Thread{
 	public void run() {
-		for(int i=0;i<10;i++) { System.out.println("hi");
+		for(int i=0;i<5;i++) { System.out.println("World   count: "+(i+1));
 		try {
-			Thread.sleep(2000);
+			Thread.sleep(3000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -82,12 +82,26 @@ class Name extends Thread {
 }
 
 public class WorkingWithSingleThread {
-    public static void main(String[] args) {
-        Object lock = new Object();
-        Hello hello = new Hello(lock);
-        Name name = new Name(lock);
-
-        hello.start();
-        name.start();
+	{
+		System.out.println("Instance Block");
+	}
+	
+    public static void main(String[] args) throws InterruptedException {
+//        Object lock = new Object();
+//        Hello hello = new Hello(lock);
+//        Name name = new Name(lock);
+//
+//        hello.start();
+//        name.start();
+    	A a=new A();
+    	
+    	B b=new B();
+    	a.start();
+    	if(a.isAlive()) System.out.println("A is alive");
+    	a.join();
+    	if(!a.isAlive()) System.out.println("A is dead");
+    	b.start();
+    	
     }
+    
 }
