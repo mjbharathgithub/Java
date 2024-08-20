@@ -49,6 +49,25 @@ public class Main {
         q.add(7);
         System.out.println(q);
         System.out.println(q.get(0));
+
+        System.out.println("Hello World");
+		Map <String ,Integer> map = new HashMap<>();
+		map.put("Joseph",51);
+		map.put("Jeeva",50);
+		System.out.println(map);
+		Map<String,Integer> shallowCopy= map;
+		
+		System.out.println(shallowCopy);
+		map.put("Aadih",234);
+		
+		shallowCopy.remove("Jeeva");
+		System.out.println("original : "+map);
+		System.out.println("Shallow copy : "+shallowCopy);
+		
+		List<Integer> vector = new LinkedList<>();
+		vector.add(5);
+		vector.add(4);
+		System.out.println(vector.get(0));
       
         
         
