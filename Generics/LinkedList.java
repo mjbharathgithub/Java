@@ -1,10 +1,3 @@
-/******************************************************************************
-
-                            Online Java Compiler.
-                Code, Compile, Run and Debug java program online.
-Write your code in this editor and press "Run" button to execute it.
-
-*******************************************************************************/
 import java.util.*;
 
  class Node<T>{
@@ -92,6 +85,24 @@ import java.util.*;
         
         System.out.println("Node has been reversed joseph");
     }
+    Node<T> returnRerverse(Node<T> node){
+        Node<T> prev,upcom,current;
+        prev=null;upcom=null;
+        
+        current=node;
+        
+        while(current!=null){
+            upcom=current.next;
+            current.next=prev;
+            prev=current;
+            current=upcom;
+            
+        }
+        // head=prev;
+        
+        // System.out.println("Node has been reversed joseph");
+        return prev;
+    }
     
     T returnMiddle(){
         Node<T> slow=head,fast= head;
@@ -106,6 +117,19 @@ import java.util.*;
         
     }
     
+    boolean equals(LinkedList<T> ll){
+        Node<T> temp2 = ll.head;
+        Node<T> temp1=head;
+        
+        while(temp2!=null&&temp1!=null){
+            if(temp1.data!=temp2.data) return false;
+            temp2=temp2.next;
+            temp1=temp1.next;
+        }
+        
+        return true;
+    }
+    
     
 	public static void main(String[] args) {
 	
@@ -114,18 +138,26 @@ import java.util.*;
 	intList.addNode(1);
 	intList.addNode(2);
 	intList.addNode(3);
-	intList.addNode(4);
-	intList.addNode(5);
+	intList.addNode(2);
+	intList.addNode(1);
 	intList.display();
 // // 	LinkedList<String> strList= new LinkedList<>();
 // // 	strList.addNode("abc");strList.addNode("abhghgc");strList.addNode("absdc");
 // // 	strList.display();
 //     intList.insertNode(11,5);
 //     intList.display();
-    intList.reverse(intList.head);
-    intList.display();
+    //intList.reverse(intList.head);
+   // intList.display();
     
     System.out.println(intList.returnMiddle());
+    LinkedList<Integer> revList=new LinkedList<>();
+    revList.head=intList.returnRerverse(intList.head);
+    
+    revList.display();
+    if(intList.equals(revList)) System.out.println("Palindrome");
+    else System.out.println("Nope");
+    
+    
 	
 
 	}
