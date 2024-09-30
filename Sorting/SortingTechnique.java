@@ -36,6 +36,24 @@ public class Main
             arr[min]=temp;
             
         }
+
+	// for(int i=len-1;i>0;i--){
+ //            max=i;
+ //            //System.out.println(Arrays.asList(Arrays.stream(arr).boxed().toArray(Integer[]::new)));
+ //            for(int j=i-1;j>=0;j--){
+ //            if(arr[max]<arr[j]){
+ //                max=j;
+ //            }
+            
+ //            }
+ //            temp=arr[i];
+ //            arr[i]=arr[max];
+ //            arr[max]=temp;
+            
+ //            // arr[i]=arr[i]+arr[max];
+ //            // arr[max]=arr[i]-arr[max];
+ //            // arr[i]=arr[i]-arr[max];
+ //        }     
     }
 	public static void main(String[] args) {
 		System.out.println("Hello World");
