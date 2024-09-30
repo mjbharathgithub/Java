@@ -55,6 +55,20 @@ public class Main
  //            // arr[i]=arr[i]-arr[max];
  //        }     
     }
+	static void bubbleSort(int arr[]){
+            int len=arr.length;
+            for(int i=0;i<len;i++){
+                for(int j=0;j<len-i-1;j++){
+                    if(arr[j]>arr[j+1]){
+                        arr[j]=arr[j]+arr[j+1];
+                        arr[j+1]=arr[j]-arr[j+1];
+                        arr[j]=arr[j]-arr[j+1];
+                    }
+                }
+                System.out.println(Arrays.asList(Arrays.stream(arr).boxed().toArray(Integer[]::new)));
+		
+            }
+        }
 	public static void main(String[] args) {
 		System.out.println("Hello World");
 		int arr[]={5,4,3,2,1};
