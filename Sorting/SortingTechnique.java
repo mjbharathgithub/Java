@@ -69,6 +69,23 @@ public class Main
 		
             }
         }
+
+	static void countSort(int arr[]){
+        int max=Arrays.stream(arr).max().getAsInt();
+        int freq[]=new int[max+1];
+        
+        for(int ele:arr) freq[ele]++;
+        int ind=0;
+        for(int i=0;i<=max;i++){
+            while(freq[i]>0){
+                arr[ind]=i;
+                ind++;
+                freq[i]--;
+            }
+        }
+        System.out.println(Arrays.toString(arr));
+        
+    }
 	public static void main(String[] args) {
 		System.out.println("Hello World");
 		int arr[]={5,4,3,2,1};
